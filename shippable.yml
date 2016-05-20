@@ -5,8 +5,7 @@ python:
 
 build:
   pre_ci:
-    # Always pull the latest base image to avoid any cached images on the host
-    - docker pull drydock/u14:prod
+    #build docker image 
     - docker build --rm -t manishas/u14nod:tip .
 
   pre_ci_boot:
@@ -24,5 +23,5 @@ build:
 
 integrations:
   hub:
-    - integrationName: "dockerhub"
+    - integrationName: "docker hub integration"
       type: "docker"
