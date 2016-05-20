@@ -7,7 +7,7 @@ build:
   pre_ci:
     # Always pull the latest base image to avoid any cached images on the host
     - docker pull drydock/u14:prod
-    - docker build --rm -t drydock/u14nod:tip .
+    - docker build --rm -t manishas/u14nod:tip .
 
   pre_ci_boot:
     image_name: drydock/u14nod
@@ -18,14 +18,9 @@ build:
     # We can add sanity checks to ensure the image was built successfully here
     - . ~/.nvm/nvm.sh
     - nvm ls
-    - nvm use 0.10
-    - nvm use 0.12
-    - nvm use iojs-1.0.0
-    - nvm use iojs-2.0.0
-    - nvm use 4.2.3
 
   on_success:
-    - if [ "$IS_PULL_REQUEST" != true ]; then docker push drydock/u14nod:tip; fi
+    - if [ "$IS_PULL_REQUEST" != true ]; then docker push manishas/u14nod:tip; fi
 
 integrations:
   hub:
